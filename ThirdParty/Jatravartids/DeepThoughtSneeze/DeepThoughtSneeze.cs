@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Contracts;
 
-namespace DeepThought2
+namespace DeepThoughtSneeze
 {
     public class DeepThoughtSneeze : IComputer
     {
