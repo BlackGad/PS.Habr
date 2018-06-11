@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using ConsoleApplication.Contracts;
+using Contracts;
 
-namespace ConsoleApplication.Implementations
+namespace DeepThought1
 {
-    class DeepThought1 : IComputer
+    public class DeepThought1 : IComputer
     {
         #region Constants
 

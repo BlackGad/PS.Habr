@@ -1,8 +1,8 @@
 using System;
 
-namespace ConsoleApplication.Contracts
+namespace Contracts
 {
-    internal interface IComputer
+    public interface IComputer
     {
         #region Properties
 

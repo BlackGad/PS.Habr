@@ -1,6 +1,6 @@
-namespace ConsoleApplication.Contracts
+namespace Contracts
 {
-    class Answer
+    public class Answer
     {
         #region Constructors
 

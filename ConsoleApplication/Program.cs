@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
-using ConsoleApplication.Contracts;
-using ConsoleApplication.Implementations;
+using Contracts;
 
 namespace ConsoleApplication
 {
@@ -16,8 +15,8 @@ namespace ConsoleApplication
             var fullCycles = (long)(now.Ticks/pulsarPeriod.TotalSeconds);
 
             return fullCycles%2 == 0
-                ? (IComputer)new DeepThought1()
-                : new DeepThought2();
+                ? (IComputer)new DeepThought1.DeepThought1()
+                : new DeepThought2.DeepThought2();
         }
 
         static void Main(string[] args)
