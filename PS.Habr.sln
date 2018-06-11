@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepThought1", "DeepThought
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepThought2", "DeepThought2\DeepThought2.csproj", "{B128074E-33D5-4B4F-9E44-7AD70D5DC36C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{028D49B2-5255-4044-9AE8-78AAA0AD10CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{501F7EB3-9A7A-4664-B99C-273493B83463} = {028D49B2-5255-4044-9AE8-78AAA0AD10CD}
+		{B128074E-33D5-4B4F-9E44-7AD70D5DC36C} = {028D49B2-5255-4044-9AE8-78AAA0AD10CD}
 	EndGlobalSection
 EndGlobal

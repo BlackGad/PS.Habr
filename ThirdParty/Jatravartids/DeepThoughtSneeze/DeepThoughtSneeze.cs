@@ -27,7 +27,7 @@ namespace DeepThoughtSneeze
 
         public string Name
         {
-            get { return "Deep thought beta"; }
+            get { return "Deep thought sneeze"; }
         }
 
         #endregion

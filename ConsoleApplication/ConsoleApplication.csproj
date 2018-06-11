@@ -54,14 +54,6 @@
       <Project>{FF4D8D1E-2424-48A9-BA5D-65F51E3099C3}</Project>
       <Name>Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DeepThought1\DeepThought1.csproj">
-      <Project>{501F7EB3-9A7A-4664-B99C-273493B83463}</Project>
-      <Name>DeepThought1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DeepThought2\DeepThought2.csproj">
-      <Project>{B128074E-33D5-4B4F-9E44-7AD70D5DC36C}</Project>
-      <Name>DeepThought2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

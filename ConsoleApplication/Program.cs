@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Threading;
 using Contracts;
 
@@ -8,20 +12,49 @@ namespace ConsoleApplication
     {
         #region Static members
 
-        private static IComputer GetComputer()
+        private static List<Type> DiscoverComputers()
         {
-            var now = DateTimeOffset.Now;
-            var pulsarPeriod = TimeSpan.FromSeconds(1.337302088331d);
-            var fullCycles = (long)(now.Ticks/pulsarPeriod.TotalSeconds);
+            var outputDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var computerAssemblies = Directory.EnumerateFiles(outputDirectory, "Deep*.dll", SearchOption.AllDirectories).ToList();
+            var result = new List<Type>();
+            foreach (var computerAssembly in computerAssemblies)
+            {
+                result.AddRange(Assembly.LoadFile(computerAssembly)
+                                        .GetTypes()
+                                        .Where(t => typeof(IComputer).IsAssignableFrom(t) && !t.IsAbstract));
+            }
+            return result;
+        }
 
-            return fullCycles%2 == 0
-                ? (IComputer)new DeepThought1.DeepThought1()
-                : new DeepThought2.DeepThought2();
+        private static IComputer GetComputer(Type computerType)
+        {
+            return (IComputer)Activator.CreateInstance(computerType);
         }
 
         static void Main(string[] args)
         {
-            var computer = GetComputer();
+            var discoveredComputers = DiscoverComputers();
+
+            Type selectedComputer = null;
+            while (selectedComputer == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Choose computer: ");
+                for (var index = 0; index < discoveredComputers.Count; index++)
+                {
+                    var discoveredComputer = discoveredComputers[index];
+                    Console.WriteLine($"{index + 1}. {discoveredComputer.Name}");
+                }
+
+                var input = Console.ReadLine();
+                int selectedIndex;
+                if (int.TryParse(input, out selectedIndex) && selectedIndex > 0 && selectedIndex <= discoveredComputers.Count)
+                {
+                    selectedComputer = discoveredComputers[selectedIndex - 1];
+                }
+            }
+
+            var computer = GetComputer(selectedComputer);
             var question = "Answer to the Ultimate Question of Life, The Universe, and Everything";
             Console.WriteLine($"Asking {computer.Name} computer \"{question}\"");
 
