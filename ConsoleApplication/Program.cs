@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading;
+using ConsoleApplication.Contracts;
+using ConsoleApplication.Implementations;
 
 namespace ConsoleApplication
 {
@@ -7,9 +9,20 @@ namespace ConsoleApplication
     {
         #region Static members
 
+        private static IComputer GetComputer()
+        {
+            var now = DateTimeOffset.Now;
+            var pulsarPeriod = TimeSpan.FromSeconds(1.337302088331d);
+            var fullCycles = (long)(now.Ticks/pulsarPeriod.TotalSeconds);
+
+            return fullCycles%2 == 0
+                ? (IComputer)new DeepThought1()
+                : new DeepThought2();
+        }
+
         static void Main(string[] args)
         {
-            var computer = new DeepThought();
+            var computer = GetComputer();
             var question = "Answer to the Ultimate Question of Life, The Universe, and Everything";
             Console.WriteLine($"Asking {computer.Name} computer \"{question}\"");
 

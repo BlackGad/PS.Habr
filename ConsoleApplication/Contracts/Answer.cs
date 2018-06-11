@@ -1,4 +1,4 @@
-namespace ConsoleApplication
+namespace ConsoleApplication.Contracts
 {
     class Answer
     {

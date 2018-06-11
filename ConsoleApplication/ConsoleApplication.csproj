@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Answer.cs" />
-    <Compile Include="DeepThought.cs" />
+    <Compile Include="Contracts\Answer.cs" />
+    <Compile Include="Implementations\DeepThought2.cs" />
+    <Compile Include="Implementations\DeepThought1.cs" />
+    <Compile Include="Contracts\IComputer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

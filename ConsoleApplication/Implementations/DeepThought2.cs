@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using ConsoleApplication.Contracts;
 
-namespace ConsoleApplication
+namespace ConsoleApplication.Implementations
 {
-    class DeepThought
+    class DeepThought2 : IComputer
     {
         #region Constants
 
@@ -15,7 +16,7 @@ namespace ConsoleApplication
 
         #region Constructors
 
-        public DeepThought()
+        public DeepThought2()
         {
             _questions = new Dictionary<Guid, DateTimeOffset>();
         }
@@ -26,7 +27,7 @@ namespace ConsoleApplication
 
         public string Name
         {
-            get { return "Deep thought"; }
+            get { return "Deep thought beta"; }
         }
 
         #endregion
